@@ -290,9 +290,8 @@ def vos_tracking_video(video_state, interactive_state, mask_dropdown, save_dir):
     non_clicked_masks = [(np.logical_not(mask) * 255).astype(np.uint8) for mask in masks]
     
     save_path = os.path.join(save_dir, f"masks_{video_state['video_name']}.h5")
-    save_frames_and_masks(video_state, non_clicked_masks, save_path)
-
-    print(f"Frames and non-clicked masks saved to {save_path}")
+    # save_frames_and_masks(video_state, non_clicked_masks, save_path) # TODO: make a button for this.
+    # print(f"Frames and non-clicked masks saved to {save_path}")
 
     # Update video_state
     last_valid_frame_index = find_first_empty_mask_frame(masks)
