@@ -1,3 +1,41 @@
+
+# Get Started
+#### Ubuntu
+```shell
+# Clone the repository:
+git clone https://github.com/gaomingqi/Track-Anything.git
+cd Track-Anything
+
+# Install dependencies: 
+pip install -r requirements.txt
+
+# Run the Track-Anything gradio demo.
+python main.py --device cuda:0 # Modified to save frames
+
+# python app.py # original app
+# python app.py --device cuda:0 --sam_model_type vit_b # for lower memory usage
+```
+## Usage:
+1. upload video or select video
+2. push `Get video info`
+3. push `Tracking`
+4. when the tracking gets lost, push `Jump to Empty frame` button
+5. re-prompt and repeat from 3.
+
+
+## ISSUEs:
+1.  Uploading video sometimes dont work. Just put your video in the `test_sample` folder in case this happens.
+
+
+## Some memos for improvement:
+1. `generator` in track_anything.py runs XMem throughout the whole video each time. We need to run it only from the start frame until it loses tracking
+2. Each time it loses tracking, we need to push `Get Empty Frame` button and then rerun `Tracking`. We need to automate this.
+3. Saving function has to be separated from vos function.
+4. Need to modify `base_segmenter.py` and corresponding gradio stuff such that we can give bounding box prompting
+
+
+
+# Original Readme below: 
 <!-- ![](./assets/track-anything-logo.jpg) -->
 
 <div align=center>

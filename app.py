@@ -378,7 +378,7 @@ SAM_checkpoint = download_checkpoint(sam_checkpoint_url, folder, sam_checkpoint)
 xmem_checkpoint = download_checkpoint(xmem_checkpoint_url, folder, xmem_checkpoint)
 e2fgvi_checkpoint = download_checkpoint_from_google_drive(e2fgvi_checkpoint_id, folder, e2fgvi_checkpoint)
 args.port = 12212
-args.device = "cuda:3"
+args.device = "cuda:0"
 # args.mask_save = True
 
 # initialize sam, xmem, e2fgvi models
@@ -588,8 +588,8 @@ with gr.Blocks() as iface:
     # set example
     gr.Markdown("##  Examples")
     gr.Examples(
-        examples=[os.path.join(os.path.dirname(__file__), "./test_sample/", test_sample) for test_sample in ["test-sample8.mp4","test-sample4.mp4", \
-                                                                                                             "test-sample2.mp4","test-sample13.mp4"]],
+        examples=[os.path.join(os.path.dirname(__file__), "./test_sample/", test_sample) for test_sample in ["test2.mp4","test1.mp4", \
+                                                                                                             "test3.mp4","test4.mp4"]],
         fn=run_example,
         inputs=[
             video_input
